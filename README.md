@@ -235,7 +235,7 @@
         let msg = "مرحباً Dimah Fragrances، أود طلب العطور التالية:\n";
         cart.forEach(i => msg += `• ${i.name} (${i.size}) - ${i.price} EGP\n`);
         msg += `\nالإجمالي: ${document.getElementById('cartTotal').innerText} EGP`;
-        window.open(`https://wa.me/2011020302042?text=${encodeURIComponent(msg)}`);
+        window.open(`https://wa.me/01102302024?text=${encodeURIComponent(msg)}`);
     }
 
     renderProducts(perfumes);
