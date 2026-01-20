@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
@@ -96,7 +96,7 @@
 <body>
 
 <header>
-    <a href="#" class="logo">DIMAH</a>
+    <a href="#" class="logo">DIMAH fragrances</a>
     <div onclick="toggleCart()" style="cursor:pointer; font-weight:bold;">🛒 السلة (<span id="count">0</span>)</div>
 </header>
 
