@@ -100,7 +100,7 @@
 
 <section class="about-section">
     <h2>من نحن</h2>
-    <p><b>DIMAH Fragrances</b> هي وجهتكم المفضلة لأرقى العطور المستوحاة عالمياً. نضمن لكم الجودة، الثبات، والفوحان في كل قطرة، مع تشكيلة واسعة تناسب جميع الأذواق.</p>
+    <p><b>DIMAH Fragrances</b> عطور مصنوعة يدويًا بخامات عالية الجودة، ثابتة وفواحة، مستوحاة من أشهر البراندات العالمية لتمنحك فخامة حقيقية بسعر مناسب.</p>
     
     <div class="social-container">
         <a href="https://www.facebook.com/groups/1607807530395013/" target="_blank" class="social-btn fb">
