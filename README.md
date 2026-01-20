@@ -141,7 +141,7 @@
         { id: 3, b: "Creed", n: "Creed Aventus", d: "ملك العطور، يجمع بين القوة والانتعاش.", p: [320, 220, 75, 40], g: "Male", gl: "رجالي", img: "https://fimgs.net/mdimg/perfume/m.9828.jpg" },
         { id: 4, b: "Maison Crivelli", n: "Oud Maracuja", d: "تناقض مذهل بين العود وفاكهة الباشن فروت.", p: [320, 220, 75, 40], g: "Unisex", gl: "للجنسين", img: "https://fimgs.net/mdimg/perfume/m.84411.jpg" },
         { id: 5, b: "Gissa", n: "Imperial Valley", d: "عطر نيش فخم يجمع بين الأناقة والجاذبية.", p: [290, 200, 70, 35], g: "Unisex", gl: "للجنسين", img: "https://fimgs.net/mdimg/perfume/m.70932.jpg" },
-        { id: 6, b: "Arabian Oud", n: "Madawy", d: "عطر يجسد الفخامة العربية بلمسات فرنسية راقية.", p: [290, 200, 70, 35], g: "Unisex", gl: "للجنسين", img: "https://fimgs.net/mdimg/perfume/m.46338.jpg" },
+        { id: 6, b: "Arabian Oud", n: "Madawy", d: "عطر يجسد الفخامة العربية بلمسات فرنسية راقية.", p: [290, 200, 70, 35], g: "Unisex", gl: "للجنسين", img: "https://www.google.com/url?sa=t&source=web&rct=j&url=https%3A%2F%2Fwww.fragranticarabia.com%2Fperfumes%2FArabian-Oud%2FMadawi-51307.html&ved=0CBYQjRxqFwoTCMiI37TjmpIDFQAAAAAdAAAAABAP&opi=89978449" },
         { id: 7, b: "Lattafa", n: "Khomra Coffee", d: "رائحة دافئة من القهوة والكراميل.", p: [290, 200, 70, 35], g: "Unisex", gl: "للجنسين", img: "https://fimgs.net/mdimg/perfume/m.85465.jpg" },
         { id: 8, b: "YSL", n: "Libre", d: "مزيج من الخزامى وزهر البرتقال.", p: [290, 200, 70, 35], g: "Female", gl: "حريمي", img: "https://fimgs.net/mdimg/perfume/m.56671.jpg" },
         { id: 9, b: "Narciso Rodrigues", n: "Poudree", d: "عطر بودري ناعم يفيض بالأنوثة.", p: [290, 200, 70, 35], g: "Female", gl: "حريمي", img: "https://fimgs.net/mdimg/perfume/m.36351.jpg" },
