@@ -108,8 +108,9 @@
 
 <section class="hero">
     <div class="hero-content">
-        <h1 style="color:var(--gold); margin:0; letter-spacing: 2px;">DIMAH FRAGRANCES</h1>
-        <p style="font-weight: bold; margin-top: 10px;">حيث تلتقي الفخامة بالرائحة</p>
+        
+        <h1 style="color:var(--gold); margin:0; letter-spacing: 2px;">DIMAH FRAGRANCES</h1>  
+        <p style="font-weight: bold; margin-top: 10px;عطور تليق بك</p>
     </div>
 </section>
 
@@ -145,7 +146,7 @@
 
 <footer>
     <p>© 2026 DIMAH FRAGRANCES - جميع الحقوق محفوظة</p>
-    <p style="color: #888;">خدمة العملاء: 011020302042</p>
+    <p style="color: #888;">chatus: 01102302024</p>
 </footer>
 
 <script>
