@@ -94,7 +94,7 @@
 <body>
 
 <header>
-    <a href="#" class="logo">DIMAH</a>
+    <a href="#" class="logo">DIMAH fragrances</a>
     <div class="cart-status" onclick="toggleCart()">🛒 السلة (<span id="count">0</span>)</div>
 </header>
 
