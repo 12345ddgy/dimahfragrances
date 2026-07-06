@@ -1,344 +1,252 @@
-
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dimah Fragrances | ديمة للعطور</title>
-    <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;500;700&family=Cairo:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;700&family=Playfair+Display:ital,wght=0,700;1,700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary-blue: #005696;
-            --accent-gold: #c5a059;
-            --bg-light: #fdfdfd;
-            --text-main: #222;
-            --white: #ffffff;
+        /* الهوية البصرية: أبيض، ذهبي، ولمسات سوداء */
+        :root { 
+            --gold: #d4af37; 
+            --gold-dark: #aa841b;
+            --bg-main: #ffffff; 
+            --card-bg: #ffffff; 
+            --text-dark: #111111; 
+            --text-muted: #666666;
+            --black-accent: #000000;
         }
-
-        body {
-            font-family: 'Alexandria', sans-serif;
-            background-color: var(--bg-light);
-            color: var(--text-main);
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
+        
+        body { 
+            font-family: 'Cairo', sans-serif; 
+            background-color: var(--bg-main); 
+            color: var(--text-dark); 
+            margin: 0; 
+            padding: 0; 
+            line-height: 1.6; 
         }
-
-        /* Top Bar */
-        .top-announcement {
-            background: var(--primary-blue);
-            color: white;
-            text-align: center;
-            padding: 10px 0;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-            font-weight: 500;
+        
+        /* الهيدر */
+        header { 
+            background-color: var(--black-accent); 
+            padding: 15px 5%; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            border-bottom: 3px solid var(--gold); 
+            position: sticky; 
+            top: 0; 
+            z-index: 1000; 
         }
-
-        /* Navbar */
-        header {
-            background: rgba(255, 255, 255, 0.98);
-            padding: 15px 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+        .logo-text { font-family: 'Playfair Display', serif; font-size: 26px; color: var(--gold); text-decoration: none; font-weight: bold; letter-spacing: 2px; }
+        .nav-links { display: flex; align-items: center; gap: 20px; }
+        .fb-link { color: #ffffff; text-decoration: none; font-size: 0.95rem; display: flex; align-items: center; gap: 5px; transition: 0.3s; border: 1px solid #333; padding: 5px 12px; border-radius: 4px; }
+        .fb-link:hover { border-color: var(--gold); color: var(--gold); }
+        .cart-trigger { cursor: pointer; color: var(--gold); font-weight: bold; background: #111; padding: 5px 15px; border-radius: 4px; border: 1px solid var(--gold); }
+        
+        /* قسم العرض الرئيسي */
+        .hero { 
+            height: 35vh; 
+            background: linear-gradient(rgba(255,255,255,0.9), rgba(255,255,255,0.95)), 
+                        url('https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=1000') center/cover no-repeat; 
+            display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 10%;
+            border-bottom: 1px solid #eaeaea;
         }
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 3.5rem; margin: 0; color: var(--black-accent); font-weight: 700; }
+        .hero p { font-size: 1.2rem; max-width: 700px; margin-top: 10px; color: var(--text-muted); }
 
-        .logo-container img {
-            height: 60px; /* شعار ديمة */
-            transition: 0.3s;
-        }
+        /* البحث */
+        .search-section { margin: -30px auto 40px; width: 90%; max-width: 600px; position: relative; z-index: 10; }
+        #searchInput { width: 100%; padding: 15px 25px; border-radius: 8px; border: 2px solid var(--black-accent); background: #ffffff; color: #000; outline: none; box-shadow: 0 10px 25px rgba(0,0,0,0.05); font-family: 'Cairo'; font-size: 1rem; }
+        #searchInput:focus { border-color: var(--gold); }
 
-        .nav-tools {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
+        /* شبكة المنتجات */
+        .container { padding: 0 5% 50px; }
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .product-card { background: var(--card-bg); border-radius: 4px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.05); border: 1px solid #eee; transition: 0.4s; display: flex; flex-direction: column; }
+        .product-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.1); border-color: var(--gold); }
+        
+        /* ضبط وتوسيط صور الزجاجات الأصلية بشكل احترافي */
+        .p-img { height: 300px; background: #ffffff; display: flex; align-items: center; justify-content: center; padding: 20px; overflow: hidden; border-bottom: 1px solid #f5f5f5; }
+        .p-img img { max-width: 100%; max-height: 100%; object-fit: contain; transition: 0.5s; }
+        .product-card:hover .p-img img { transform: scale(1.05); }
 
-        .social-link {
-            color: var(--primary-blue);
-            font-size: 1.5rem;
-            transition: 0.3s;
-        }
+        .card-body { padding: 25px; flex-grow: 1; display: flex; flex-direction: column; }
+        .tag { font-size: 0.75rem; color: #fff; background: var(--black-accent); padding: 2px 12px; border-radius: 2px; align-self: flex-start; margin-bottom: 12px; font-weight: bold; }
+        .brand { font-size: 0.85rem; color: var(--gold-dark); text-transform: uppercase; font-weight: 700; }
+        .name { font-size: 1.4rem; margin: 3px 0 12px 0; font-weight: 700; color: var(--black-accent); }
+        
+        /* خانة المكونات */
+        .notes-box { background: #fafafa; border-right: 3px solid var(--gold); padding: 10px 12px; margin-bottom: 15px; border-radius: 2px; font-size: 0.85rem; color: #444; }
 
-        .social-link:hover { color: var(--accent-gold); }
+        select { background: #ffffff; color: var(--text-dark); border: 1px solid #ccc; padding: 12px; width: 100%; border-radius: 4px; margin-bottom: 15px; font-family: 'Cairo'; cursor: pointer; font-size: 0.95rem; }
+        select:focus { border-color: var(--gold); }
+        .price { font-size: 1.6rem; color: var(--black-accent); font-weight: bold; margin-bottom: 20px; border-bottom: 1px dashed #eee; padding-bottom: 10px; }
+        
+        .buy-btn { background: var(--black-accent); color: #fff; border: 1px solid var(--black-accent); padding: 14px; font-weight: bold; border-radius: 4px; cursor: pointer; transition: 0.3s; width: 100%; font-family: 'Cairo'; font-size: 1rem; }
+        .buy-btn:hover { background: var(--gold); color: #fff; border-color: var(--gold); }
 
-        /* Hero Section */
-        .main-banner {
-            height: 50vh;
-            background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), 
-                        url('https://lens.usercontent.google.com/image?vsrid=CK2ZodqHoJCqfRACGAEiJDZjYTg0N2JhLWViYWMtNDRkZS1iMTBkLWU2NzYxZjNiOWNkOTIGIgJlaCgfOOLNj7PFtZID&gsessionid=sAIEum9A8pNdzFAaxiVUdpA0o3I_ZvBbnPQbTAYcuvW5CJfM2TuDFg');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            border-bottom: 4px solid var(--accent-gold);
-        }
+        /* السلة */
+        .cart-sidebar { position: fixed; top: 0; left: -100%; width: 400px; height: 100%; background: #ffffff; z-index: 2000; transition: 0.5s; padding: 30px; box-sizing: border-box; box-shadow: 10px 0 30px rgba(0,0,0,0.1); border-right: 3px solid var(--gold); }
+        .cart-sidebar.active { left: 0; }
+        .cart-item { border-bottom: 1px solid #eee; padding: 15px 0; display: flex; justify-content: space-between; align-items: center; }
 
-        .main-banner h1 {
-            font-size: 3rem;
-            color: var(--primary-blue);
-            margin: 0;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-        }
+        .wa-order { background: #25d366; color: white; text-align: center; padding: 15px; border-radius: 4px; text-decoration: none; display: block; font-weight: bold; margin-top: 20px; font-size: 1.1rem; }
+        
+        footer { background: var(--black-accent); text-align: center; padding: 35px; color: #888; border-top: 3px solid var(--gold); }
+        footer a { color: var(--gold); text-decoration: none; font-weight: bold; }
 
-        /* Products Grid */
-        .content-wrapper { padding: 40px 5%; }
-
-        .search-box {
-            max-width: 600px;
-            margin: -30px auto 50px;
-            position: relative;
-        }
-
-        #searchInput {
-            width: 100%;
-            padding: 18px 25px;
-            border-radius: 50px;
-            border: none;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            font-family: 'Cairo';
-            font-size: 1rem;
-            outline: none;
-        }
-
-        .perfume-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 35px;
-        }
-
-        .perfume-card {
-            background: var(--white);
-            border-radius: 4px;
-            overflow: hidden;
-            transition: 0.4s;
-            border: 1px solid #eee;
-            position: relative;
-        }
-
-        .perfume-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-        }
-
-        .img-container {
-            height: 320px;
-            background: #f9f9f9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .img-container img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
-
-        .badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: var(--accent-gold);
-            color: white;
-            padding: 5px 15px;
-            font-size: 0.7rem;
-            border-radius: 2px;
-            text-transform: uppercase;
-        }
-
-        .details {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .brand-name {
-            color: #888;
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            margin-bottom: 5px;
-        }
-
-        .fragrance-name {
-            font-weight: 700;
-            font-size: 1.2rem;
-            color: var(--primary-blue);
-            margin-bottom: 10px;
-        }
-
-        .price-tag {
-            font-size: 1.3rem;
-            color: #d0021b;
-            font-weight: 700;
-            margin: 15px 0;
-        }
-
-        .add-to-cart {
-            background: var(--primary-blue);
-            color: white;
-            border: none;
-            width: 100%;
-            padding: 15px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .add-to-cart:hover { background: #003d6b; }
-
-        /* Floating Cart */
-        .cart-trigger {
-            position: fixed;
-            bottom: 30px;
-            left: 30px;
-            background: var(--accent-gold);
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-            z-index: 1001;
-        }
-
-        /* Mobile Adjustments */
-        @media (max-width: 600px) {
-            .main-banner h1 { font-size: 1.8rem; }
-            .perfume-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
-            .img-container { height: 200px; }
-            .fragrance-name { font-size: 0.9rem; }
-            .details { padding: 10px; }
-        }
+        @media (max-width: 480px) { .cart-sidebar { width: 100%; } .hero h1 { font-size: 2.2rem; } }
     </style>
 </head>
 <body>
 
-    <div class="top-announcement">توصيل سريع لجميع المحافظات | جودة تثبت حضورك</div>
-
     <header>
-        <div class="logo-container">
-            <h2 style="color: var(--primary-blue); margin: 0;">DIMAH fragrances</h2>
-        </div>
-        <div class="nav-tools">
-            <a href="https://www.facebook.com/your-page-link" class="social-link" target="_blank">
-                <i class="fab fa-facebook"></i>
-            </a>
-            <div onclick="toggleCart()" style="cursor:pointer; position:relative;">
-                <i class="fas fa-shopping-bag" style="font-size: 1.5rem; color: var(--primary-blue);"></i>
-                <span id="cart-count" style="position:absolute; top:-10px; right:-10px; background:red; color:white; border-radius:50%; padding:2px 6px; font-size:0.7rem;">0</span>
-            </div>
+        <div class="logo-text">DIMAH FRAGRANCES</div>
+        <div class="nav-links">
+            <a href="https://www.facebook.com/share/12E8LwV2vG/" target="_blank" class="fb-link">🔵 Facebook</a>
+            <div onclick="toggleCart()" class="cart-trigger">🛒 السلة (<span id="count">0</span>)</div>
         </div>
     </header>
 
-    <section class="main-banner">
-        <h1 style="font-family: 'Cairo'">مجموعتنا الكاملة</h1>
-        <p>36 عبيرًا ساحرًا يروي قصة أناقتك</p>
+    <section class="hero">
+        <h1>DIMAH FRAGRANCES</h1>
+        <p>مجموعتنا المحددة والفاخرة المستوحاة من أرقى الزجاجات العطرية العالمية وبأعلى ثبات وجودة.</p>
     </section>
 
-    <div class="content-wrapper">
-        <div class="search-box">
-            <input type="text" id="searchInput" placeholder="ابحث عن عطرك المفضل (مثلاً: Sauvage, Black Afgano)..." onkeyup="filterItems()">
+    <div class="search-section">
+        <input type="text" id="searchInput" placeholder="ابحث عن العطر المفضل لديك..." onkeyup="search()">
+    </div>
+
+    <div class="container">
+        <div class="products-grid" id="grid"></div>
+    </div>
+
+    <div class="cart-sidebar" id="cart">
+        <div style="display:flex; justify-content:space-between; align-items:center; border-bottom: 2px solid var(--black-accent); padding-bottom:15px;">
+            <h2 style="margin:0; color:var(--black-accent); font-weight: 700;">حقيبة التسوق</h2>
+            <span onclick="toggleCart()" style="cursor:pointer; font-size:24px; color: var(--text-muted);">✕</span>
         </div>
-
-        <div class="perfume-grid" id="perfumeGrid">
+        <div id="items" style="height: calc(100% - 200px); overflow-y:auto;"></div>
+        <div style="padding-top:20px;">
+            <div style="display:flex; justify-content:space-between; font-size:1.4rem; font-weight:bold; border-top: 1px solid #eee; padding-top: 15px;">
+                <span>الإجمالي:</span>
+                <span id="total" style="color:var(--gold-dark);">0 ج.م</span>
             </div>
+            <a href="#" class="wa-order" onclick="sendOrder()">تأكيد الطلب عبر واتساب 💬</a>
+        </div>
     </div>
 
-    <div class="cart-trigger" onclick="toggleCart()">
-        <i class="fas fa-shopping-cart"></i>
-    </div>
+    <footer>
+        <p style="margin: 0; color: #fff;">جميع الحقوق محفوظة © 2026 لـ DIMAH FRAGRANCES</p>
+        <p style="margin: 5px 0 0 0;">تابعنا عبر <a href="https://www.facebook.com/share/12E8LwV2vG/" target="_blank">Facebook</a></p>
+    </footer>
 
     <script>
-        const perfumes = [
-            { id: 1, brand: "Nasomatto", name: "Black Afgano", price: 250, img: "https://fimgs.net/images/perfume/m.6472.jpg", tag: "رجالي" },
-            { id: 2, brand: "Montale", name: "Arabian Tonica", price: 250, img: "https://fimgs.net/images/perfume/m.4431.jpg", tag: "رجالي" },
-            { id: 3, brand: "Creed", name: "Aventus", price: 225, img: "https://fimgs.net/images/perfume/m.9828.jpg", tag: "رجالي" },
-            { id: 4, brand: "Maison Crivelli", name: "Oud Maracuja", price: 225, img: "https://fimgs.net/images/perfume/m.80635.jpg", tag: "للجنسين" },
-            { id: 5, brand: "Gissa", name: "Imperial Valley", price: 190, img: "https://fimgs.net/images/perfume/m.70298.jpg", tag: "للجنسين" },
-            { id: 6, brand: "Arabian Oud", name: "Madawy", price: 190, img: "https://fimgs.net/images/perfume/m.46332.jpg", tag: "للجنسين" },
-            { id: 7, brand: "Lattafa", name: "Khamrah Qahwa", price: 180, img: "https://fimgs.net/images/perfume/m.87823.jpg", tag: "للجنسين" },
-            { id: 8, brand: "YSL", name: "Libre", price: 180, img: "https://fimgs.net/images/perfume/m.56077.jpg", tag: "حريمي" },
-            { id: 9, brand: "Narciso", name: "Narciso Poudree", price: 180, img: "https://fimgs.net/images/perfume/m.37624.jpg", tag: "حريمي" },
-            { id: 10, brand: "Elie Saab", name: "Elie Saab EDP", price: 180, img: "https://fimgs.net/images/perfume/m.12258.jpg", tag: "حريمي" },
-            { id: 11, brand: "Tom Ford", name: "Black Orchid", price: 180, img: "https://fimgs.net/images/perfume/m.1018.jpg", tag: "للجنسين" },
-            { id: 12, brand: "V&R", name: "Spicebomb Extreme", price: 180, img: "https://fimgs.net/images/perfume/m.30499.jpg", tag: "رجالي" },
-            { id: 13, brand: "Burberry", name: "Burberry Her", price: 180, img: "https://fimgs.net/images/perfume/m.51697.jpg", tag: "حريمي" },
-            { id: 14, brand: "Victoria Secret", name: "Love is Heavenly", price: 180, img: "https://fimgs.net/images/perfume/m.14445.jpg", tag: "حريمي" },
-            { id: 15, brand: "Victoria Secret", name: "Very Sexy Now", price: 180, img: "https://fimgs.net/images/perfume/m.44318.jpg", tag: "حريمي" },
-            { id: 16, brand: "Victoria Secret", name: "Bombshell Celebration", price: 180, img: "https://fimgs.net/images/perfume/m.63004.jpg", tag: "حريمي" },
-            { id: 17, brand: "CH", name: "Good Girl", price: 180, img: "https://fimgs.net/images/perfume/m.39688.jpg", tag: "حريمي" },
-            { id: 18, brand: "JPG", name: "Le Male Elixir", price: 180, img: "https://fimgs.net/images/perfume/m.81643.jpg", tag: "رجالي" },
-            { id: 19, brand: "Chanel", name: "Bleu de Chanel", price: 180, img: "https://fimgs.net/images/perfume/m.25967.jpg", tag: "رجالي" },
-            { id: 20, brand: "Kayali", name: "Vanilla 28", price: 180, img: "https://fimgs.net/images/perfume/m.52554.jpg", tag: "حريمي" },
-            { id: 21, brand: "Armani", name: "Stronger With You", price: 180, img: "https://fimgs.net/images/perfume/m.45258.jpg", tag: "رجالي" },
-            { id: 22, brand: "Paco Rabanne", name: "Invictus Victory", price: 180, img: "https://fimgs.net/images/perfume/m.79255.jpg", tag: "رجالي" },
-            { id: 23, brand: "Paco Rabanne", name: "One Million EDP", price: 180, img: "https://fimgs.net/images/perfume/m.61902.jpg", tag: "رجالي" },
-            { id: 24, brand: "Dior", name: "Sauvage EDP", price: 180, img: "https://fimgs.net/images/perfume/m.49159.jpg", tag: "رجالي" },
-            { id: 25, brand: "Roberto Cavalli", name: "Cavalli EDP", price: 170, img: "https://fimgs.net/images/perfume/m.13875.jpg", tag: "حريمي" },
-            { id: 26, brand: "Armani", name: "Acqua di Gio", price: 170, img: "https://fimgs.net/images/perfume/m.71754.jpg", tag: "رجالي" },
-            { id: 27, brand: "Lattafa", name: "Yara Pink", price: 170, img: "https://fimgs.net/images/perfume/m.65215.jpg", tag: "حريمي" },
-            { id: 28, brand: "Lattafa", name: "Yara Candy", price: 170, img: "https://fimgs.net/images/perfume/m.92641.jpg", tag: "حريمي" },
-            { id: 29, brand: "Paco Rabanne", name: "Olympea", price: 170, img: "https://fimgs.net/images/perfume/m.31661.jpg", tag: "حريمي" },
-            { id: 30, brand: "CH", name: "212 Sexy", price: 170, img: "https://fimgs.net/images/perfume/m.611.jpg", tag: "حريمي" },
-            { id: 31, brand: "Billie Eilish", name: "Eilish No.1", price: 170, img: "https://fimgs.net/images/perfume/m.70054.jpg", tag: "حريمي" },
-            { id: 32, brand: "Mancera", name: "Bianco Latte", price: 170, img: "https://fimgs.net/images/perfume/m.64756.jpg", tag: "للجنسين" },
-            { id: 33, brand: "Britney Spears", name: "Fantasy", price: 170, img: "https://fimgs.net/images/perfume/m.600.jpg", tag: "حريمي" },
-            { id: 34, brand: "Aquolina", name: "Pink Sugar", price: 170, img: "https://fimgs.net/images/perfume/m.976.jpg", tag: "حريمي" },
-            { id: 35, brand: "Armani", name: "My Way", price: 170, img: "https://fimgs.net/images/perfume/m.62030.jpg", tag: "حريمي" },
-        { id: 36, brand: "Bath & Body", name: "Japanese Cherry Blossom", prices: { "50ml": 250, "30ml": 170, "10ml": 50, "5ml": 30 }, gender: "Female", desc: "عبير الزهور اليابانية الكلاسيكي." }
-          
-            // أضف باقي الـ 36 هنا بنفس الترتيب
+        // مصفوفة المنتجات الحصرية والمعتمدة من طرفك فقط
+        const data = [
+            // القائمة الرجالية المعتمدة (4 أنواع فقط)
+            { id: 1, brand: "Paco Rabanne", name: "Invictus Victory Elixir", p: { "30ml": 200, "50ml": 290, "10ml": 70 }, g: "Male", img: "https://images.unsplash.com/photo-1541643600914-78b084683601?q=80&w=500", notes: "العنبر الغني، اللابدانوم، الفانيليا الدافئة، الليمون المنعش، البخور الغامض" },
+            { id: 2, brand: "Emporio Armani", name: "Stronger With You", p: { "30ml": 200, "50ml": 290, "10ml": 70 }, g: "Male", img: "https://images.unsplash.com/photo-1594035910387-fea47794261f?q=80&w=500", notes: "الكستناء (أبو فروة)، الكراميل، الفانيليا، القرفة، الميرمية، الفلفل الوردي" },
+            { id: 3, brand: "Xerjoff", name: "Erba Pura", p: { "30ml": 220, "50ml": 320, "10ml": 75 }, g: "Unisex", img: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?q=80&w=500", notes: "البرغموت الصقلي، البرتقال، الليمون، الفواكه الاستوائية الحلوة، المسك الأبيض، العنبر، الفانيليا" },
+            { id: 4, brand: "Creed", name: "Creed Aventus", p: { "30ml": 220, "50ml": 320, "10ml": 75 }, g: "Male", img: "https://images.unsplash.com/photo-1615655496458-a46c6ea19fb0?q=80&w=500", notes: "الأناناس، الكشمش الأسود، التفاح، الأخشاب، الياسمين، المسك، الفانيليا الفاخرة" },
+            
+            // القائمة الحريمية بالكامل من المجموعة الأصلية
+            { id: 5, brand: "Lancôme", name: "Idôle EDP", p: { "30ml": 210, "50ml": 300, "10ml": 70 }, g: "Female", img: "https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?q=80&w=500", notes: "الورد التركي، ورد دي ماي، الياسمين الهندي، الكمثرى المقرمشة، البرغموت، المسك الأبيض اللطيف" },
+            { id: 6, brand: "Yves Saint Laurent", name: "Libre", p: { "30ml": 200, "50ml": 290, "10ml": 70 }, g: "Female", img: "https://images.unsplash.com/photo-1565814636199-ae8133055c1c?q=80&w=500", notes: "اللافندر (الخزامى)، الماندارين، زهر البرتقال، الياسمين، فانيليا مدغشقر، المسك" },
+            { id: 7, brand: "Narciso Rodrigues", name: "Narciso Poudree", p: { "30ml": 200, "50ml": 290, "10ml": 70 }, g: "Female", img: "https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?q=80&w=500", notes: "النوتات البودرية الناعمة، الياسمين، الورد الأبيض، المسك، خشب الأرز" },
+            { id: 8, brand: "ELIE SAAB", name: "Elie Saab EDP", p: { "30ml": 200, "50ml": 290, "10ml": 70 }, g: "Female", img: "https://images.unsplash.com/photo-1547887537-6158d64c35b3?q=80&w=500", notes: "زهر البرتقال الأفريقي، الياسمين النقي، عسل الأبيض، الباتشولي، الورد" },
+            { id: 9, brand: "Burberry", name: "Burberry Her", p: { "30ml": 200, "50ml": 290, "10ml": 70 }, g: "Female", img: "https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?q=80&w=500", notes: "الفراولة، التوت الأسود، الكرز، الياسمين، البنفسج، العنبر، الأخشاب، المسك" },
+            { id: 10, brand: "Victoria Secret", name: "Love is Heavenly", p: { "30ml": 200, "50ml": 290, "10ml": 70 }, g: "Female", img: "https://images.unsplash.com/photo-1547887537-6158d64c35b3?q=80&w=500", notes: "زهر التوت، الكيوي، زنبق الماء، الفريزيا، المسك، خشب الصندل" },
+            { id: 11, brand: "Victoria Secret", name: "Very Sexy Now", p: { "30ml": 200, "50ml": 290, "10ml": 70 }, g: "Female", img: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?q=80&w=500", notes: "جوز الهند الاستوائي، الفواكه الاستوائية، الجوافة، اللوتس، الأخشاب الدافئة" },
+            { id: 12, brand: "Victoria Secret", name: "Bomb Chill", p: { "30ml": 200, "50ml": 290, "10ml": 70 }, g: "Female", img: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=500", notes: "الكمثرى المثلجة، زهور الفاوانيا الشتوية، الأخشاب النظيفة، إحساس منعش" },
+            { id: 13, brand: "Carolina Herrera", name: "Good Girl", p: { "30ml": 200, "50ml": 290, "10ml": 70 }, g: "Female", img: "https://images.unsplash.com/photo-1565814636199-ae8133055c1c?q=80&w=500", notes: "اللوز، القهوة، الياسمين، التونكا، الكاكاو، الفانيليا، خشب الصندل" },
+            { id: 14, brand: "Kayali", name: "Kayali Vanilla 28", p: { "30ml": 200, "50ml": 290, "10ml": 70 }, g: "Female", img: "https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?q=80&w=500", notes: "أوركيد الفانيليا، الياسمين، السكر البني، خشب التونكا، المسك، العنبر" },
+            { id: 15, brand: "Roberto Cavalli", name: "Roberto Cavalli EDP", p: { "30ml": 190, "50ml": 275, "10ml": 65 }, g: "Female", img: "https://images.unsplash.com/photo-1547887537-6158d64c35b3?q=80&w=500", notes: "الفلفل الوردي، زهر البرتقال الأفريقي، الفانيليا، الجاوي، التونكا" },
+            { id: 16, brand: "Lattafa", name: "Yara", p: { "30ml": 190, "50ml": 275, "10ml": 65 }, g: "Female", img: "https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?q=80&w=500", notes: "الأوركيد، الفواكه الاستوائية، الفانيليا، السكاكر، خشب الصندل، المسك" },
+            { id: 17, brand: "Lattafa", name: "Yara Candy", p: { "30ml": 190, "50ml": 275, "10ml": 65 }, g: "Female", img: "https://images.unsplash.com/photo-1547887537-6158d64c35b3?q=80&w=500", notes: "الحلوى السكرية، الفراولة، المانجو، الكومثرى، الفانيليا الناعمة، المسك" },
+            { id: 18, brand: "Paco Rabanne", name: "Olympia", p: { "30ml": 190, "50ml": 275, "10ml": 65 }, g: "Female", img: "https://images.unsplash.com/photo-1565814636199-ae8133055c1c?q=80&w=500", notes: "الفانيليا المالحة، الياسمين المائي، الماندارين الأخضر، زهر الزنجبيل، الكشمير" },
+            { id: 19, brand: "Carolina Herrera", name: "212 Sexy", p: { "30ml": 190, "50ml": 275, "10ml": 65 }, g: "Female", img: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=500", notes: "الفلفل الوردي، الماندارين، غزل البنات، الجاردينيا، الفانيليا، خشب الصندل" },
+            { id: 20, brand: "Billie Eilish", name: "Eilish Eilish", p: { "30ml": 190, "50ml": 275, "10ml": 65 }, g: "Female", img: "https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?q=80&w=500", notes: "السكر، الكاكاو، الفانيليا، التوت الأحمر.. توليفة ساحرة" },
+            { id: 21, brand: "Britney Spears", name: "Fantasy Britney", p: { "30ml": 190, "50ml": 275, "10ml": 65 }, g: "Female", img: "https://images.unsplash.com/photo-1595425970377-c9703cf48b6d?q=80&w=500", notes: "الكيوي، الليتشي، الشوكولاتة البيضاء، الكب كيك، الأوركيد، الياسمين" },
+            { id: 22, brand: "Aquolina", name: "Pink Sugar", p: { "30ml": 190, "50ml": 275, "10ml": 65 }, g: "Female", img: "https://images.unsplash.com/photo-1547887537-6158d64c35b3?q=80&w=500", notes: "غزل البنات، التوت الأحمر، العرقسوس، الفراولة، الكراميل، الفانيليا" },
+            { id: 23, brand: "Giorgio Armani", name: "My Way EDP", p: { "30ml": 190, "50ml": 275, "10ml": 65 }, g: "Female", img: "https://images.unsplash.com/photo-1565814636199-ae8133055c1c?q=80&w=500", notes: "زهر البرتقال، البرغموت، مسك الروم، الياسمين الهندي، فانيليا بوربون" },
+            { id: 24, brand: "Lancome", name: "La Vie Est Belle", p: { "30ml": 190, "50ml": 275, "10ml": 65 }, g: "Female", img: "https://images.unsplash.com/photo-1528740561666-42477bb08e95?q=80&w=500", notes: "الكشمش الأسود، الكمثرى، زهر البرتقال، الياسمين، حلويات البخاخ، التونكا" },
+            { id: 25, brand: "Bath & Body Works", name: "Japanese Cherry Blossom", p: { "30ml": 190, "50ml": 275, "10ml": 65 }, g: "Female", img: "https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?q=80&w=500", notes: "أزهار الكرز اليابانية، الأرز، الميموزا، زهر البتلة، خشب الصندل، العنبر" }
         ];
 
-        function renderProducts() {
-            const container = document.getElementById('perfumeGrid');
-            container.innerHTML = perfumes.map(p => `
-                <div class="perfume-card">
-                    <span class="badge">${p.tag}</span>
-                    <div class="img-container">
-                        <img src="${p.img}" alt="${p.name}">
-                    </div>
-                    <div class="details">
-                        <div class="brand-name">${p.brand}</div>
-                        <div class="fragrance-name">${p.name}</div>
-                        <select style="width:100%; padding:8px; margin-bottom:10px; border:1px solid #ddd;">
-                            <option>حجم 50 مل</option>
-                            <option>حجم 30 مل</option>
-                            <option>حجم 10 مل</option>
+        let cartArr = [];
+
+        function render() {
+            const grid = document.getElementById('grid');
+            grid.innerHTML = data.map(item => `
+                <div class="product-card">
+                    <div class="p-img"><img src="${item.img}" alt="${item.name}"></div>
+                    <div class="card-body">
+                        <span class="tag">${item.g === 'Male' ? 'FOR HIM' : item.g === 'Female' ? 'FOR HER' : 'UNISEX'}</span>
+                        <div class="brand">${item.brand}</div>
+                        <div class="name">${item.name}</div>
+                        
+                        <div class="notes-box"><b>المكونات العطرية:</b> ${item.notes}</div>
+
+                        <select id="size-${item.id}" onchange="updatePrice(${item.id})">
+                            <option value="30ml" selected>30 مل - ${item.p['30ml']} ج.م</option>
+                            <option value="50ml">50 مل - ${item.p['50ml']} ج.م</option>
+                            <option value="10ml">10 مل - ${item.p['10ml']} ج.م</option>
                         </select>
-                        <div class="price-tag">${p.price} ج.م</div>
-                        <button class="add-to-cart" onclick="addToCart(${p.id})">أضف للحقيبة</button>
+                        <div class="price" id="pr-${item.id}">${item.p['30ml']} ج.م</div>
+                        <button class="buy-btn" onclick="add(${item.id})">إضافة إلى حقيبة التسوق 🛒</button>
                     </div>
                 </div>
             `).join('');
         }
 
-        function filterItems() {
-            const val = document.getElementById('searchInput').value.toLowerCase();
-            document.querySelectorAll('.perfume-card').forEach(card => {
-                card.style.display = card.innerText.toLowerCase().includes(val) ? 'block' : 'none';
+        function updatePrice(id) {
+            const size = document.getElementById(`size-${id}`).value;
+            const item = data.find(x => x.id === id);
+            document.getElementById(`pr-${id}`).innerText = item.p[size] + " ج.م";
+        }
+
+        function toggleCart() { document.getElementById('cart').classList.toggle('active'); }
+
+        function add(id) {
+            const size = document.getElementById(`size-${id}`).value;
+            const item = data.find(x => x.id === id);
+            cartArr.push({ name: item.name, size: size, price: item.p[size] });
+            updateCart();
+            if(!document.getElementById('cart').classList.contains('active')) toggleCart();
+        }
+
+        function updateCart() {
+            document.getElementById('count').innerText = cartArr.length;
+            const itemsDiv = document.getElementById('items');
+            itemsDiv.innerHTML = cartArr.map((x, i) => `
+                <div class="cart-item">
+                    <div><b>${x.name}</b><br><small>${x.size}</small></div>
+                    <div>${x.price} ج.م <span onclick="cartArr.splice(${i},1);updateCart()" style="color:red;cursor:pointer;margin-right:10px;">✕</span></div>
+                </div>
+            `).join('');
+            const total = cartArr.reduce((a, b) => a + b.price, 0);
+            document.getElementById('total').innerText = total + " ج.م";
+        }
+
+        function sendOrder() {
+            if(cartArr.length === 0) return alert('السلة فارغة');
+            let text = "طلب جديد من DIMAH:\n\n";
+            cartArr.forEach((x, i) => text += `${i+1}. ${x.name} (${x.size}) - ${x.price} ج.م\n`);
+            text += `\nالإجمالي: ${document.getElementById('total').innerText}`;
+            window.open(`https://wa.me/201102302024?text=${encodeURIComponent(text)}`);
+        }
+
+        function search() {
+            const q = document.getElementById('searchInput').value.toLowerCase();
+            document.querySelectorAll('.product-card').forEach(card => {
+                card.style.display = card.innerText.toLowerCase().includes(q) ? 'flex' : 'none';
             });
         }
 
-        // تشغيل الوظائف عند التحميل
-        window.onload = renderProducts;
-
-        function toggleCart() {
-            // كود السلة الاحترافي (يمكن دمجه مع الكود السابق)
-            alert("سيتم نقلك لصفحة إتمام الطلب عبر واتساب");
-        }
+        render();
     </script>
 </body>
 </html>
+
