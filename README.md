@@ -104,7 +104,7 @@
     <header>
         <div class="logo-text">DIMAH FRAGRANCES</div>
         <div class="nav-links">
-            <a href="https://www.facebook.com/share/12E8LwV2vG/" target="_blank" class="fb-link">🔵 Facebook</a>
+            <a href="https://www.facebook.com/share/g/1GZZoiPGdZ/" target="_blank" class="fb-link">🔵 Facebook</a>
             <div onclick="toggleCart()" class="cart-trigger">🛒 السلة (<span id="count">0</span>)</div>
         </div>
     </header>
